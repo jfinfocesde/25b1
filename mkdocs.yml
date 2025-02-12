@@ -1,0 +1,59 @@
+site_name: Lógica de Programación
+site_url: https://jfinfocesde.github.io/25lp/
+
+theme:
+  name: material
+  language: es  
+  features:
+    - content.code.copy 
+  icon:
+    logo: octicons/code-16
+  theme:
+  palette:
+    primary: pink    
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details 
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences 
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+
+extra:
+  generator: false  
+
+copyright: 2025 &copy; by JFVG
+
+nav:  
+  - Semana 1: p1.md
+  - Semana 2: p2.md
+  - Semana 3: p3.md
+  - Semana 4: p4.md
+  - Semana 5: p5.md
+  - Semana 6: p6.md
+  - Semana 7: p7.md
+  - Semana 8: p8.md
+  - Semana 9: p9.md
+  - Semana 10: p10.md
+  - Semana 11: p11.md
+  - Semana 12: p12.md
+  - Semana 13: p13.md
+  - Semana 14: p14.md
+  - Semana 15: p15.md
+  - Semana 16: p16.md
+  - Semana 17: p17.md
+  - Semana 18: p18.md
+  
+
