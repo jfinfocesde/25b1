@@ -1,32 +1,50 @@
-site_name: Programación de Aplicaciones Móviles I
+site_name: Backen I
 site_url: https://jfinfocesde.github.io/25b1/
+site_author: jhonfvg
 
 theme:
   name: material
   language: es  
-  features:
-    - content.code.copy 
   icon:
-    logo: octicons/code-16
-  theme:
-  palette:
-    primary: pink    
+    logo: octicons/code-16    
+  features:    
+    - navigation.tabs.sticky 
+    - navigation.tabs
+    - navigation.top
+    # - toc.integrate
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - navigation.indexes
+  palette:    
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: pink
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode        
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: lime
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
 markdown_extensions:
   - admonition
-  - pymdownx.details 
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
+  - codehilite
+  - toc
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+        alternate_style: true
+  - pymdownx.details
   - pymdownx.inlinehilite
   - pymdownx.snippets
-  - pymdownx.superfences 
   - attr_list
   - md_in_html
   - pymdownx.blocks.caption
@@ -36,24 +54,39 @@ extra:
 
 copyright: 2025 &copy; by JFVG
 
-nav:  
-  - Semana 1: p1.md
-  - Semana 2: p2.md
-  - Semana 3: p3.md
-  - Semana 4: p4.md
-  - Semana 5: p5.md
-  - Semana 6: p6.md
-  - Semana 7: p7.md
-  - Semana 8: p8.md
-  - Semana 9: p9.md
-  - Semana 10: p10.md
-  - Semana 11: p11.md
-  - Semana 12: p12.md
-  - Semana 13: p13.md
-  - Semana 14: p14.md
-  - Semana 15: p15.md
-  - Semana 16: p16.md
-  - Semana 17: p17.md
-  - Semana 18: p18.md
-  
+nav:
+  - Inicio: index.md  
+  - Contenido:
+      - content/p1.md
+      - content/p2.md
+      - content/p3.md
+      - content/p4.md
+      - content/p5.md
+      - content/p6.md
+      - content/p7.md
+      - content/p8.md
+      - content/p9.md
+      - content/p10.md
+      - content/p11.md
+      - content/p12.md
+      - content/p13.md
+      - content/p14.md
+      - content/p15.md
+      - content/p16.md
+      - content/p17.md
+      - content/p18.md 
+
+
+  - Proyecto Integrador: 
+      - pi/p1.md
+      - pi/p2.md
+  - Blog:
+     - blog/index.md
+  - Acerca de: about.md
+
+plugins:
+  - search
+  - blog
+  - glightbox
+
 
