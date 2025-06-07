@@ -78,8 +78,7 @@ nav:
 
 
   - Proyecto Integrador: 
-      - pi/p1.md
-      - pi/p2.md
+      - pi/p1.md   
   - Blog:
      - blog/index.md
   - Acerca de: about.md
