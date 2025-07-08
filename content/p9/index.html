@@ -1,0 +1,1615 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="jhonfvg">
+      
+      
+        <link rel="canonical" href="https://jfinfocesde.github.io/25b1/content/p9/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
+    
+    
+      
+        <title>Semana 9 Polimorfismo en Java - Backen I</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#semana-9-polimorfismo-en-java" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Backen I" class="md-header__button md-logo" aria-label="Backen I" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Backen I
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Semana 9 Polimorfismo en Java
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../p1/" class="md-tabs__link">
+          
+  
+    
+  
+  Contenido
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pi/p1/" class="md-tabs__link">
+          
+  
+    
+  
+  Proyecto Integrador
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../blog/" class="md-tabs__link">
+          
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  Acerca de
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Backen I" class="md-nav__button md-logo" aria-label="Backen I" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg>
+
+    </a>
+    Backen I
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Contenido
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Contenido
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Semana 1 - Pacto pedagógico
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Semana 2 - Programación Orientada a Objetos - POO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Proyecto Integrador
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Proyecto Integrador
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/p1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pautas de Presentación para Proyecto Integrador - Programación Orientada a Objetos en Java o API Simple en Spring Boot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../blog/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Archivo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Acerca de
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analogia-simple" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analogía Simple
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      Propósito
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-polimorfismo-en-tiempo-de-compilacion-sobrecarga-de-metodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Polimorfismo en Tiempo de Compilación: Sobrecarga de Métodos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Polimorfismo en Tiempo de Compilación: Sobrecarga de Métodos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-clase-para-sumar-numeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo: Clase para Sumar Números
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo: Clase para Sumar Números">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#salida" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salida
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicacion-paso-a-paso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicación Paso a Paso
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representacion-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representación Visual
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-polimorfismo-en-tiempo-de-ejecucion-sobreescritura-de-metodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Polimorfismo en Tiempo de Ejecución: Sobreescritura de Métodos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Polimorfismo en Tiempo de Ejecución: Sobreescritura de Métodos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-animales-con-sonidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo: Animales con Sonidos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ejemplo: Animales con Sonidos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codigo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#salida_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salida
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicacion-paso-a-paso_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicación Paso a Paso
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representacion-visual_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representación Visual
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-guiada-aplicando-polimorfismo-en-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad Guiada: Aplicando Polimorfismo en Java
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parte-1-configuracion-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 1: Configuración Inicial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parte 1: Configuración Inicial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instrucciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrucciones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigo-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código Inicial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tarea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plantilla-para-libro" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plantilla para Libro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plantilla-para-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plantilla para Main
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicación
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parte-2-sobrecarga-de-metodos-en-la-clase-tienda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 2: Sobrecarga de Métodos en la Clase Tienda
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parte 2: Sobrecarga de Métodos en la Clase Tienda">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instrucciones_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrucciones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigo-inicial_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código Inicial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tarea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plantilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plantilla
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verificación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#salida-esperada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salida Esperada
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicacion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicación
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parte-3-sobreescritura-de-metodos-en-la-jerarquia-de-productos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 3: Sobreescritura de Métodos en la Jerarquía de Productos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parte 3: Sobreescritura de Métodos en la Jerarquía de Productos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instrucciones_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrucciones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigo-inicial_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código Inicial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tarea">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plantilla-para-libro_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plantilla para Libro
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plantilla-para-electronico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plantilla para Electronico
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacion_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificación
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verificación">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#salida-esperada_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Salida Esperada
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explicacion_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicación
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codigo-completo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código Completo
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="semana-9-polimorfismo-en-java">Semana 9 Polimorfismo en Java</h1>
+<p>El <strong>polimorfismo</strong> es una característica de la programación orientada a objetos que permite que un mismo nombre, como el de un método, tenga diferentes comportamientos según el contexto. La palabra "polimorfismo" significa "muchas formas", lo que refleja su capacidad para adaptarse a distintas situaciones.</p>
+<h3 id="analogia-simple">Analogía Simple</h3>
+<p>Piensa en un interruptor de luz. Al presionarlo, enciende una lámpara, pero en otro contexto podría activar un ventilador. Aunque el acción es la misma ("presionar"), el resultado depende del dispositivo conectado. El polimorfismo funciona de manera similar: un mismo nombre produce resultados diferentes según cómo se use.</p>
+<h3 id="proposito">Propósito</h3>
+<ul>
+<li><strong>Flexibilidad</strong>: Permite usar un nombre común para varias tareas, haciendo el código más claro.</li>
+<li><strong>Reutilización</strong>: Reduce la necesidad de escribir código repetitivo.</li>
+<li><strong>Mantenimiento</strong>: Facilita actualizar o modificar el código sin afectar otras partes.</li>
+</ul>
+<p>En Java, el polimorfismo se presenta en dos formas:
+1. <strong>En tiempo de compilación</strong>: Sobrecarga de métodos.
+2. <strong>En tiempo de ejecución</strong>: Sobreescritura de métodos.</p>
+<p>A continuación, se explica cada tipo con ejemplos prácticos.</p>
+<hr />
+<h2 id="1-polimorfismo-en-tiempo-de-compilacion-sobrecarga-de-metodos">1. Polimorfismo en Tiempo de Compilación: Sobrecarga de Métodos</h2>
+<p>La <strong>sobrecarga de métodos</strong> consiste en definir varios métodos con el <strong>mismo nombre</strong> dentro de una misma clase, pero con <strong>diferentes parámetros</strong> (en cantidad o tipo). Java selecciona el método adecuado según los argumentos proporcionados, y esta decisión se toma al compilar el programa.</p>
+<h3 id="ejemplo-clase-para-sumar-numeros">Ejemplo: Clase para Sumar Números</h3>
+<p>Se creará una clase <code>Calculadora</code> que suma números de diferentes formas: dos enteros, tres enteros o dos decimales.</p>
+<h4 id="codigo">Código</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Calculadora</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Método 1: Suma dos números enteros</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sumar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Método 2: Suma tres números enteros</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sumar</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Método 3: Suma dos números decimales</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">sumar</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Método principal para probar</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Calculadora</span><span class="w"> </span><span class="n">calc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Calculadora</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Suma de dos enteros</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Resultado de 5 + 3: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">calc</span><span class="p">.</span><span class="na">sumar</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// Suma de tres enteros</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Resultado de 5 + 3 + 2: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">calc</span><span class="p">.</span><span class="na">sumar</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// Suma de dos decimales</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Resultado de 5.5 + 3.2: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">calc</span><span class="p">.</span><span class="na">sumar</span><span class="p">(</span><span class="mf">5.5</span><span class="p">,</span><span class="w"> </span><span class="mf">3.2</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="salida">Salida</h4>
+<div class="highlight"><pre><span></span><code>Resultado de 5 + 3: 8
+Resultado de 5 + 3 + 2: 10
+Resultado de 5.5 + 3.2: 8.7
+</code></pre></div>
+<h3 id="explicacion-paso-a-paso">Explicación Paso a Paso</h3>
+<ol>
+<li><strong>Definición de la Clase</strong>:</li>
+<li>
+<p>La clase <code>Calculadora</code> tiene tres métodos llamados <code>sumar</code>:</p>
+<ul>
+<li>Uno para dos enteros (<code>int</code>).</li>
+<li>Otro para tres enteros (<code>int</code>).</li>
+<li>Otro para dos decimales (<code>double</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Selección del Método</strong>:</p>
+</li>
+<li>Al llamar <code>sumar(5, 3)</code>, Java identifica que se usan dos enteros y ejecuta <code>sumar(int, int)</code>.</li>
+<li>Con <code>sumar(5, 3, 2)</code>, detecta tres enteros y usa <code>sumar(int, int, int)</code>.</li>
+<li>
+<p>Para <code>sumar(5.5, 3.2)</code>, selecciona <code>sumar(double, double)</code> por los decimales.</p>
+</li>
+<li>
+<p><strong>Relación con el Polimorfismo</strong>:</p>
+</li>
+<li>El nombre <code>sumar</code> es el mismo, pero cada versión realiza una tarea distinta según los parámetros. Esto simplifica el uso del código, ya que solo se necesita un nombre.</li>
+</ol>
+<h3 id="representacion-visual">Representación Visual</h3>
+<p>Imagina los métodos como versiones de una misma función:
+<div class="highlight"><pre><span></span><code>sumar(int, int)        → Para 2 enteros
+sumar(int, int, int)   → Para 3 enteros
+sumar(double, double)  → Para 2 decimales
+</code></pre></div></p>
+<hr />
+<h2 id="2-polimorfismo-en-tiempo-de-ejecucion-sobreescritura-de-metodos">2. Polimorfismo en Tiempo de Ejecución: Sobreescritura de Métodos</h2>
+<p>La <strong>sobreescritura de métodos</strong> ocurre cuando una clase hija redefine un método heredado de su clase padre, cambiando su comportamiento. Java determina qué método ejecutar cuando el programa está corriendo, según el tipo real del objeto.</p>
+<h3 id="ejemplo-animales-con-sonidos">Ejemplo: Animales con Sonidos</h3>
+<p>Se creará una clase padre <code>Animal</code> y dos clases hijas, <code>Perro</code> y <code>Gato</code>. Cada una tendrá un método <code>hablar</code>, pero con un comportamiento específico.</p>
+<h4 id="codigo_1">Código</h4>
+<div class="highlight"><pre><span></span><code><span class="c1">// Clase padre</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">hablar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Soy un animal y emito un sonido.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Clase hija: Perro</span>
+<span class="kd">class</span> <span class="nc">Perro</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">hablar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Guau, guau&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Clase hija: Gato</span>
+<span class="kd">class</span> <span class="nc">Gato</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Animal</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">hablar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Miau, miau&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Clase principal para probar</span>
+<span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Creación de objetos</span>
+<span class="w">        </span><span class="n">Animal</span><span class="w"> </span><span class="n">animalGenerico</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Animal</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Animal</span><span class="w"> </span><span class="n">perro</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Perro</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Animal</span><span class="w"> </span><span class="n">gato</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Gato</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Ejecución del método hablar</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Animal genérico:&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">animalGenerico</span><span class="p">.</span><span class="na">hablar</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Perro:&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">perro</span><span class="p">.</span><span class="na">hablar</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Gato:&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">gato</span><span class="p">.</span><span class="na">hablar</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="salida_1">Salida</h4>
+<div class="highlight"><pre><span></span><code>Animal genérico:
+Soy un animal y emito un sonido.
+Perro:
+Guau, guau
+Gato:
+Miau, miau
+</code></pre></div>
+<h3 id="explicacion-paso-a-paso_1">Explicación Paso a Paso</h3>
+<ol>
+<li><strong>Clase Padre <code>Animal</code></strong>:</li>
+<li>
+<p>Define el método <code>hablar</code> con un mensaje genérico.</p>
+</li>
+<li>
+<p><strong>Clases Hijas <code>Perro</code> y <code>Gato</code></strong>:</p>
+</li>
+<li>Heredan de <code>Animal</code> con la palabra <code>extends</code>.</li>
+<li>Cada una redefine <code>hablar</code>:<ul>
+<li><code>Perro</code> imprime "Guau, guau".</li>
+<li><code>Gato</code> imprime "Miau, miau".</li>
+</ul>
+</li>
+<li>
+<p>La anotación <code>@Override</code> indica que se está reemplazando el método del padre.</p>
+</li>
+<li>
+<p><strong>Funcionamiento del Polimorfismo</strong>:</p>
+</li>
+<li>En <code>main</code>, se crean tres objetos:<ul>
+<li><code>animalGenerico</code> es un <code>Animal</code>.</li>
+<li><code>perro</code> es un <code>Perro</code>, pero se almacena como <code>Animal</code>.</li>
+<li><code>gato</code> es un <code>Gato</code>, pero se almacena como <code>Animal</code>.</li>
+</ul>
+</li>
+<li>
+<p>Al llamar <code>hablar</code>, Java verifica el tipo real del objeto (<code>Animal</code>, <code>Perro</code> o <code>Gato</code>) y ejecuta el método correspondiente.</p>
+</li>
+<li>
+<p><strong>Relación con el Polimorfismo</strong>:</p>
+</li>
+<li>El método <code>hablar</code> tiene un solo nombre, pero su resultado varía según el objeto. Esto permite trabajar con objetos genéricos (<code>Animal</code>) y obtener comportamientos específicos.</li>
+</ol>
+<h3 id="representacion-visual_1">Representación Visual</h3>
+<p>Estructura de clases:
+<div class="highlight"><pre><span></span><code>       Animal
+      /      \
+    Perro    Gato
+</code></pre></div>
+- <strong>Animal</strong>: <code>hablar</code> genérico.
+- <strong>Perro</strong>: <code>hablar</code> → "Guau, guau".
+- <strong>Gato</strong>: <code>hablar</code> → "Miau, miau".</p>
+<hr />
+<h2 id="actividad-guiada-aplicando-polimorfismo-en-java">Actividad Guiada: Aplicando Polimorfismo en Java</h2>
+<p>Esta actividad tiene como objetivo ayudarte a comprender y practicar el <strong>polimorfismo</strong> en Java mediante un ejercicio estructurado. Crearás un programa que implementa <strong>sobrecarga de métodos</strong> (polimorfismo en tiempo de compilación) y <strong>sobreescritura de métodos</strong> (polimorfismo en tiempo de ejecución). Está diseñada para principiantes, con pasos claros, plantillas de código y explicaciones detalladas. Al finalizar, tendrás un programa funcional que aplica ambos tipos de polimorfismo.</p>
+<hr />
+<h2 id="parte-1-configuracion-inicial">Parte 1: Configuración Inicial</h2>
+<h3 id="instrucciones">Instrucciones</h3>
+<p>Crea un proyecto Java con estas clases:
+- <code>Producto</code>: Clase padre con un método para describir un producto genérico.
+- <code>Libro</code> y <code>Electronico</code>: Clases hijas que heredan de <code>Producto</code>.
+- <code>Tienda</code>: Clase para manejar descuentos.
+- <code>Main</code>: Clase para ejecutar pruebas.</p>
+<h3 id="codigo-inicial">Código Inicial</h3>
+<p>Archivo <code>Producto.java</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Producto</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">describir</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Este es un producto genérico.&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="tarea">Tarea</h3>
+<ol>
+<li>Crea las clases <code>Libro</code> y <code>Electronico</code>, haciendo que hereden de <code>Producto</code>. No modifiques el método <code>describir</code> por ahora.</li>
+<li>Crea la clase <code>Tienda</code> vacía.</li>
+<li>Crea la clase <code>Main</code> con un método <code>main</code> vacío.</li>
+</ol>
+<h4 id="plantilla-para-libro">Plantilla para <code>Libro</code></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Libro</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Producto</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// No agregues código aquí todavía</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="plantilla-para-main">Plantilla para <code>Main</code></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Las pruebas se agregarán después</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="verificacion">Verificación</h3>
+<ul>
+<li>Confirma que los archivos compilen sin errores. No ejecutarán nada aún, pero las clases deben estar definidas correctamente.</li>
+</ul>
+<h3 id="explicacion">Explicación</h3>
+<ul>
+<li><code>Producto</code> actúa como clase base para <code>Libro</code> y <code>Electronico</code>.</li>
+<li>La herencia (<code>extends</code>) permitirá a las clases hijas modificar el método <code>describir</code> más adelante.</li>
+<li><code>Tienda</code> y <code>Main</code> se usarán en las siguientes partes.</li>
+</ul>
+<hr />
+<h2 id="parte-2-sobrecarga-de-metodos-en-la-clase-tienda">Parte 2: Sobrecarga de Métodos en la Clase <code>Tienda</code></h2>
+<h3 id="instrucciones_1">Instrucciones</h3>
+<p>En la clase <code>Tienda</code>, implementa métodos sobrecargados llamados <code>calcularDescuento</code> para tres casos:
+- Descuento fijo del 10% sobre un precio.
+- Descuento personalizado basado en un porcentaje.
+- Descuento según el nivel del precio (20% si es alto, 5% si no).</p>
+<h3 id="codigo-inicial_1">Código Inicial</h3>
+<p>Archivo <code>Tienda.java</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Tienda</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Aquí se definirán los métodos calcularDescuento</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="tarea_1">Tarea</h3>
+<p>Completa <code>Tienda</code> con estos métodos:
+1. <code>calcularDescuento(double precio)</code>: Devuelve el precio con un 10% de descuento.
+2. <code>calcularDescuento(double precio, double porcentaje)</code>: Aplica un porcentaje de descuento específico.
+3. <code>calcularDescuento(double precio, boolean esPrecioAlto)</code>: Aplica un 20% de descuento si <code>esPrecioAlto</code> es <code>true</code>, o un 5% si es <code>false</code>.</p>
+<h4 id="plantilla">Plantilla</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Tienda</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Método 1: Descuento fijo del 10%</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">calcularDescuento</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">precio</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// TODO: Implementar descuento del 10%</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Método 2: Descuento personalizado</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">calcularDescuento</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">precio</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">porcentaje</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// TODO: Implementar descuento según porcentaje</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Método 3: Descuento según precio alto</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">calcularDescuento</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">precio</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">esPrecioAlto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// TODO: Implementar 20% o 5% según esPrecioAlto</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="verificacion_1">Verificación</h3>
+<p>Actualiza <code>Main</code> para probar los métodos:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Tienda</span><span class="w"> </span><span class="n">tienda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Tienda</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Prueba método 1</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Precio 100 con 10% descuento: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tienda</span><span class="p">.</span><span class="na">calcularDescuento</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// Prueba método 2</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Precio 100 con 25% descuento: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tienda</span><span class="p">.</span><span class="na">calcularDescuento</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// Prueba método 3</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Precio 200 (alto) con descuento: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tienda</span><span class="p">.</span><span class="na">calcularDescuento</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Precio 50 (normal) con descuento: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tienda</span><span class="p">.</span><span class="na">calcularDescuento</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="salida-esperada">Salida Esperada</h4>
+<div class="highlight"><pre><span></span><code>Precio 100 con 10% descuento: 90.0
+Precio 100 con 25% descuento: 75.0
+Precio 200 (alto) con descuento: 160.0
+Precio 50 (normal) con descuento: 47.5
+</code></pre></div>
+<h3 id="explicacion_1">Explicación</h3>
+<ul>
+<li><strong>Sobrecarga</strong>: Los métodos <code>calcularDescuento</code> comparten el mismo nombre pero tienen diferentes parámetros.</li>
+<li><strong>Polimorfismo en tiempo de compilación</strong>: Java selecciona el método correcto según los argumentos al compilar.</li>
+<li>Esto permite usar un solo nombre para diferentes cálculos, simplificando el código.</li>
+</ul>
+<hr />
+<h2 id="parte-3-sobreescritura-de-metodos-en-la-jerarquia-de-productos">Parte 3: Sobreescritura de Métodos en la Jerarquía de Productos</h2>
+<h3 id="instrucciones_2">Instrucciones</h3>
+<p>Modifica <code>Libro</code> y <code>Electronico</code> para que sobreescriban el método <code>describir</code> de <code>Producto</code>. Cada clase debe devolver una descripción única:
+- <code>Producto</code>: Descripción genérica.
+- <code>Libro</code>: Indica que es un libro con páginas.
+- <code>Electronico</code>: Menciona que es un dispositivo con batería.</p>
+<h3 id="codigo-inicial_2">Código Inicial</h3>
+<p>Ya tienes <code>Producto.java</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Producto</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">describir</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Este es un producto genérico.&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="tarea_2">Tarea</h3>
+<ol>
+<li>En <code>Libro</code>, sobreescribe <code>describir</code> para que devuelva: "Este es un libro con páginas interesantes."</li>
+<li>En <code>Electronico</code>, sobreescribe <code>describir</code> para que devuelva: "Este es un dispositivo electrónico con batería."</li>
+</ol>
+<h4 id="plantilla-para-libro_1">Plantilla para <code>Libro</code></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Libro</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Producto</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// TODO: Sobreescribir describir</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="plantilla-para-electronico">Plantilla para <code>Electronico</code></h4>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Electronico</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Producto</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// TODO: Sobreescribir describir</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="verificacion_2">Verificación</h3>
+<p>Actualiza <code>Main</code> para probar la jerarquía:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Tienda</span><span class="w"> </span><span class="n">tienda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Tienda</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Precio 100 con 10% descuento: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tienda</span><span class="p">.</span><span class="na">calcularDescuento</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Precio 100 con 25% descuento: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tienda</span><span class="p">.</span><span class="na">calcularDescuento</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Precio 200 (alto) con descuento: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tienda</span><span class="p">.</span><span class="na">calcularDescuento</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Precio 50 (normal) con descuento: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tienda</span><span class="p">.</span><span class="na">calcularDescuento</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\nDescripciones de productos:&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Producto</span><span class="w"> </span><span class="n">producto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Producto</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Producto</span><span class="w"> </span><span class="n">libro</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Libro</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Producto</span><span class="w"> </span><span class="n">electronico</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Electronico</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Producto genérico: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">producto</span><span class="p">.</span><span class="na">describir</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Libro: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">libro</span><span class="p">.</span><span class="na">describir</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Electrónico: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">electronico</span><span class="p">.</span><span class="na">describir</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="salida-esperada_1">Salida Esperada</h4>
+<div class="highlight"><pre><span></span><code>Precio 100 con 10% descuento: 90.0
+Precio 100 con 25% descuento: 75.0
+Precio 200 (alto) con descuento: 160.0
+Precio 50 (normal) con descuento: 47.5
+
+Descripciones de productos:
+Producto genérico: Este es un producto genérico.
+Libro: Este es un libro con páginas interesantes.
+Electrónico: Este es un dispositivo electrónico con batería.
+</code></pre></div>
+<h3 id="explicacion_2">Explicación</h3>
+<ul>
+<li><strong>Sobreescritura</strong>: <code>Libro</code> y <code>Electronico</code> redefinen <code>describir</code> con mensajes específicos.</li>
+<li><strong>Polimorfismo en tiempo de ejecución</strong>: Java selecciona el método correcto según el tipo real del objeto, aunque la variable sea de tipo <code>Producto</code>.</li>
+<li>Esto permite manejar objetos de forma genérica con comportamientos específicos.</li>
+</ul>
+<hr />
+<h2 id="codigo-completo">Código Completo</h2>
+<p>Archivo completo para referencia:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Producto.java</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Producto</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">describir</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Este es un producto genérico.&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Libro.java</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Libro</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Producto</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">describir</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Este es un libro con páginas interesantes.&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Electronico.java</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Electronico</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Producto</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">describir</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Este es un dispositivo electrónico con batería.&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Tienda.java</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Tienda</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">calcularDescuento</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">precio</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">precio</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.9</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">calcularDescuento</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">precio</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">porcentaje</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">precio</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">porcentaje</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">calcularDescuento</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">precio</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">esPrecioAlto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">esPrecioAlto</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">precio</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.8</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">precio</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.95</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Main.java</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Tienda</span><span class="w"> </span><span class="n">tienda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Tienda</span><span class="p">();</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Precio 100 con 10% descuento: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tienda</span><span class="p">.</span><span class="na">calcularDescuento</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Precio 100 con 25% descuento: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tienda</span><span class="p">.</span><span class="na">calcularDescuento</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Precio 200 (alto) con descuento: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tienda</span><span class="p">.</span><span class="na">calcularDescuento</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Precio 50 (normal) con descuento: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tienda</span><span class="p">.</span><span class="na">calcularDescuento</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;\nDescripciones de productos:&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Producto</span><span class="w"> </span><span class="n">producto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Producto</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Producto</span><span class="w"> </span><span class="n">libro</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Libro</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Producto</span><span class="w"> </span><span class="n">electronico</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Electronico</span><span class="p">();</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Producto genérico: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">producto</span><span class="p">.</span><span class="na">describir</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Libro: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">libro</span><span class="p">.</span><span class="na">describir</span><span class="p">());</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Electrónico: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">electronico</span><span class="p">.</span><span class="na">describir</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025 &copy; by JFVG
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs.sticky", "navigation.tabs", "navigation.top", "content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
