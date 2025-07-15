@@ -59,29 +59,29 @@ nav:
   - Contenido:
       - content/p1.md
       - content/p2.md
-      # - content/p3.md
-      # - content/p4.md
-      # - content/p5.md
-      # - content/p6.md
-      # - content/p7.md
-      # - content/p8.md
-      # - content/p9.md
-      # - content/p10.md
-      # - content/p11.md
-      # - content/p12.md
-      # - content/p13.md
-      # - content/p14.md
-      # - content/p15.md
-      # - content/p16.md
-      # - content/p17.md
-      # - content/p18.md 
+      - content/p3.md
+      - content/p4.md
+      - content/p5.md
+      - content/p6.md
+      - content/p7.md
+      - content/p8.md
+      - content/p9.md
+      - content/p10.md
+      - content/p11.md
+      - content/p12.md
+      - content/p13.md
+      - content/p14.md
+      - content/p15.md
+      - content/p16.md
+      - content/p17.md
+      - content/p18.md 
 
 
-  - Proyecto Integrador: 
-      - pi/p1.md   
-  - Blog:
-     - blog/index.md
-  - Acerca de: about.md
+  # - Proyecto Integrador: 
+  #     - pi/p1.md   
+  # - Blog:
+  #    - blog/index.md
+  # - Acerca de: about.md
 
 plugins:
   - search
