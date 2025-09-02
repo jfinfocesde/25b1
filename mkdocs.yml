@@ -65,7 +65,7 @@ nav:
       - content/p6.md
       - content/p7.md
       - content/p8.md
-      # - content/p9.md
+      - content/p9.md
       # - content/p10.md
       # - content/p11.md
       # - content/p12.md
@@ -83,9 +83,11 @@ nav:
       - activities/p3.md   
       - activities/p4.md   
       - activities/p5.md 
+      # - activities/p6.md 
 
   - Guías: 
       - guides/p1.md   
+      - guides/p2.md   
      
   # - Blog:
   #    - blog/index.md
