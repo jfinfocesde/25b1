@@ -88,6 +88,9 @@ nav:
   - Guías: 
       - guides/p1.md   
       - guides/p2.md   
+
+  - Proyecto Integrrador: 
+    - pi/p1.md   
      
   # - Blog:
   #    - blog/index.md
